@@ -6,6 +6,7 @@ use Paro\MailerBundle\Model\File\FileConsumer;
 use Paro\MailerBundle\Model\File\FileProducer;
 use Paro\MailerBundle\Model\Mailer;
 use Paro\MailerBundle\Model\Message;
+use Paro\MailerBundle\Model\TemplateInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,15 +20,19 @@ class DefaultController extends Controller
     {
 
         $mailer = $this->get('paromailer.mailer');
+
+
+        /** @var TemplateInterface $template */
         $template = $mailer->newTemplate('twig')
-            ->setPlaintextTemplate('')
-            ->setHtmlTemplate('');
+            ->setPlaintextTemplate(null)
+            ->setHtmlTemplate(null);
 
         $message = $mailer->newMessage('subject')
             ->setTo('tester@tester.cz')
             ->setPlainContent('message1')
-            //->setTemplate(null, array())
             ;
+
+        $template->updateMessage($message, array());
 
         //$mailer->getProducer()->add($message);
 

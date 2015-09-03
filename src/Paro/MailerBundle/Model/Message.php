@@ -158,15 +158,4 @@ class Message implements MessageInterface
         $this->title = $title;
         return $this;
     }
-
-    /**
-     * @param TemplateInterface $template
-     * @return mixed
-     */
-    public function setTemplate(TemplateInterface $template, array $data)
-    {
-        $this->template = $template;
-        $this->template->updateMessage($this, $data);
-        return $this;
-    }
 }

@@ -73,9 +73,4 @@ interface MessageInterface
      */
     public function setTitle($title);
 
-    /**
-     * @param TemplateInterface $template
-     * @return mixed
-     */
-    public function setTemplate(TemplateInterface $template, array $data);
 }
