@@ -1,4 +1,14 @@
 services:
+    paromailer.template.factory:
+        class: Paro\MailerBundle\Model\Template\TemplateFactory
+
+    paromailer.template.engine.twig:
+        class: Paro\MailerBundle\Model\Template\Engine\TwigTemplateEngine
+        arguments:
+            - "@twig"
+        tags:
+            -  { name: paromailer.template.engine, alias: 'twig' }
+
     paromailer.producer.factory:
         class: Paro\MailerBundle\Model\ProducerFactory
 
@@ -19,4 +29,4 @@ services:
 
     paromailer.mailer:
         class: Paro\MailerBundle\Model\Mailer
-        arguments: ['paro_mailer.sender', '@paromailer.producer', '@paromailer.consumer']
+        arguments: ['paro_mailer.sender', '@paromailer.producer', '@paromailer.consumer', '@paromailer.template.factory']

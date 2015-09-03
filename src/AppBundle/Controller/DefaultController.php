@@ -25,13 +25,23 @@ class DefaultController extends Controller
 
         $message = $mailer->newMessage('subject')
             ->setTo('tester@tester.cz')
-            ->setPlainContent('plain_text')
-            ->setTemplate($template, array());
+            ->setPlainContent('message1')
+            //->setTemplate(null, array())
+            ;
+
+        //$mailer->getProducer()->add($message);
+
+        $message = $mailer->newMessage('subject')
+            ->setTo('tester@tester.cz')
+            ->setPlainContent('message2')
+            //->setTemplate(null, array())
+        ;
 
         $mailer->getProducer()->add($message);
         $messageRecieved = $mailer->getConsumer()->get();
 
         var_dump($messageRecieved);
+
 
 
         // replace this example code with whatever you need

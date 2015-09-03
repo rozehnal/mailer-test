@@ -77,5 +77,5 @@ interface MessageInterface
      * @param TemplateInterface $template
      * @return mixed
      */
-    public function setTemplate(TemplateInterface $template);
+    public function setTemplate(TemplateInterface $template, array $data);
 }

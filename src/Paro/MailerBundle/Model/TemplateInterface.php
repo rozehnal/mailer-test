@@ -10,5 +10,5 @@ interface TemplateInterface
 
     public function setHtmlTemplate($htmlTemplate);
 
-    public function getText(array $params);
+    public function updateMessage(MessageInterface $message, array $params);
 }

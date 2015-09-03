@@ -4,6 +4,7 @@
 namespace Paro\MailerBundle\Model;
 
 
+use Paro\MailerBundle\Model\Template\TemplateFactory;
 use Paro\MailerBundle\Model\Template\TwigTemplate;
 
 class Mailer implements MailerInterface
@@ -21,13 +22,24 @@ class Mailer implements MailerInterface
      * @var
      */
     private $consumer;
+    /**
+     * @var TemplateFactory
+     */
+    private $templateFactory;
 
-    public function __construct($engine, $producer, $consumer)
+    /**
+     * @param $engine
+     * @param $producer
+     * @param $consumer
+     * @param TemplateFactory $templateFactory
+     */
+    public function __construct($engine, $producer, $consumer, TemplateFactory $templateFactory)
     {
 
         $this->engine = $engine;
         $this->producer = $producer;
         $this->consumer = $consumer;
+        $this->templateFactory = $templateFactory;
     }
 
 
@@ -74,9 +86,7 @@ class Mailer implements MailerInterface
      */
     public function newTemplate($engine)
     {
-        switch($engine) {
-            case 'twig':
-                return new TwigTemplate($engine);
-        }
+        $template = $this->templateFactory->newTemplate($engine);
+        return $template;
     }
 }

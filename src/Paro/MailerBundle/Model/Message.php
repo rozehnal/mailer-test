@@ -163,9 +163,10 @@ class Message implements MessageInterface
      * @param TemplateInterface $template
      * @return mixed
      */
-    public function setTemplate(TemplateInterface $template)
+    public function setTemplate(TemplateInterface $template, array $data)
     {
         $this->template = $template;
+        $this->template->updateMessage($this, $data);
         return $this;
     }
 }
