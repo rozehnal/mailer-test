@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "212d7cf95df43f1dc07bbd1f53a2faa5",
+    "hash": "8cd7f973f16da4bf6c03684c042f8b96",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -216,12 +216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "4ecde650cf135b25375a47c9469c00ebf5afe324"
+                "reference": "9b792f308aef6b267743047e2ec96ef99de450cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/4ecde650cf135b25375a47c9469c00ebf5afe324",
-                "reference": "4ecde650cf135b25375a47c9469c00ebf5afe324",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/9b792f308aef6b267743047e2ec96ef99de450cd",
+                "reference": "9b792f308aef6b267743047e2ec96ef99de450cd",
                 "shasum": ""
             },
             "require": {
@@ -281,7 +281,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2015-08-31 20:15:24"
+            "time": "2015-09-03 13:52:00"
         },
         {
             "name": "doctrine/dbal",
@@ -513,12 +513,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "63c61ba4f8f20c9a013e0fb5b6c0a8d0002f87a9"
+                "reference": "a081a0c2f14486254464f1a657595f5a6b3092f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/63c61ba4f8f20c9a013e0fb5b6c0a8d0002f87a9",
-                "reference": "63c61ba4f8f20c9a013e0fb5b6c0a8d0002f87a9",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/a081a0c2f14486254464f1a657595f5a6b3092f4",
+                "reference": "a081a0c2f14486254464f1a657595f5a6b3092f4",
                 "shasum": ""
             },
             "require": {
@@ -572,7 +572,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-08-26 14:31:47"
+            "time": "2015-09-02 15:55:05"
         },
         {
             "name": "doctrine/lexer",
@@ -1006,41 +1006,6 @@
             "time": "2015-06-02 13:48:41"
         },
         {
-            "name": "rozehnal/mailer-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rozehnal/mailer-bundle",
-                "reference": "c3d5e9283dd430bab3fc08645687d16bbe004b89"
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/dependency-injection": "*",
-                "symfony/http-kernel": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*",
-                "symfony/framework-bundle": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Paro\\MailerBundle\\": "src/Paro/MailerBundle"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "´Pavel Rozehnal",
-                    "email": "rozehnal@gmail.com"
-                }
-            ],
-            "description": "mailing",
-            "time": "2015-09-01 19:54:19"
-        },
-        {
             "name": "sensio/distribution-bundle",
             "version": "4.0.x-dev",
             "target-dir": "Sensio/Bundle/DistributionBundle",
@@ -1205,12 +1170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "a16e5a75aa8c3b97f224f42dbbad5b379ce14659"
+                "reference": "cd20bd76e96a945bfd3b4efa4fb0177456f3c65c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/a16e5a75aa8c3b97f224f42dbbad5b379ce14659",
-                "reference": "a16e5a75aa8c3b97f224f42dbbad5b379ce14659",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cd20bd76e96a945bfd3b4efa4fb0177456f3c65c",
+                "reference": "cd20bd76e96a945bfd3b4efa4fb0177456f3c65c",
                 "shasum": ""
             },
             "require": {
@@ -1250,7 +1215,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2015-08-30 17:08:54"
+            "time": "2015-09-03 11:06:15"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -1444,12 +1409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "2c4860877d13652e9c424629ec9a51a4ab876fa6"
+                "reference": "041dff57acec0411d39baceac56f206e8ba783de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/2c4860877d13652e9c424629ec9a51a4ab876fa6",
-                "reference": "2c4860877d13652e9c424629ec9a51a4ab876fa6",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/041dff57acec0411d39baceac56f206e8ba783de",
+                "reference": "041dff57acec0411d39baceac56f206e8ba783de",
                 "shasum": ""
             },
             "require": {
@@ -1558,7 +1523,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-09-01 13:39:59"
+            "time": "2015-09-03 14:20:20"
         },
         {
             "name": "twig/twig",

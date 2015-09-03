@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Paro\MailerBundle\Model\File\FileConsumer;
 use Paro\MailerBundle\Model\File\FileProducer;
+use Paro\MailerBundle\Model\Mailer;
 use Paro\MailerBundle\Model\Message;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -17,18 +18,18 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
+        $mailer = $this->get('paromailer.mailer');
+        $template = $mailer->newTemplate('twig')
+            ->setPlaintextTemplate('')
+            ->setHtmlTemplate('');
 
-        $message = new Message();
-        $message->setTo('tester@tester.cz');
-        $message->setPlainContent('plain_text');
+        $message = $mailer->newMessage('subject')
+            ->setTo('tester@tester.cz')
+            ->setPlainContent('plain_text')
+            ->setTemplate($template, array());
 
-        $folder = '/Applications/XAMPP/htdocs/mailer-bundle/Tests/data';
-
-        $producer = new FileProducer($folder);
-        $producer->add($message);
-
-        $consumer = new FileConsumer($folder);
-        $messageRecieved = $consumer->get();
+        $mailer->getProducer()->add($message);
+        $messageRecieved = $mailer->getConsumer()->get();
 
         var_dump($messageRecieved);
 

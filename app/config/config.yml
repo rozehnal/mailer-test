@@ -8,6 +8,14 @@ imports:
 parameters:
     locale: en
 
+paro_mailer:
+#    storage:
+#        type: file
+#        parameters:
+#            folder: '/Applications/XAMPP/htdocs/mailer-bundle/Tests/data'
+    sender: swiftmailer
+    storage: folder
+
 framework:
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }

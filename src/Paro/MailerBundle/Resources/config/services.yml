@@ -1,0 +1,22 @@
+services:
+    paromailer.producer.factory:
+        class: Paro\MailerBundle\Model\ProducerFactory
+
+    paromailer.consumer.factory:
+            class: Paro\MailerBundle\Model\ConsumerFactory
+
+    paromailer.producer:
+        class: Paro\MailerBundle\Model\ProducerInterface
+        factory: ["@paromailer.producer.factory", createNewProducer]
+        arguments:
+            - "%paro_mailer.storage%"
+
+    paromailer.consumer:
+        class: Paro\MailerBundle\Model\ConsumerInterface
+        factory: ["@paromailer.consumer.factory", createNewConsumer]
+        arguments:
+            - "%paro_mailer.storage%"
+
+    paromailer.mailer:
+        class: Paro\MailerBundle\Model\Mailer
+        arguments: ['paro_mailer.sender', '@paromailer.producer', '@paromailer.consumer']
