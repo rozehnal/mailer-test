@@ -4,12 +4,12 @@
 namespace Paro\MailerBundle\Mailer\Storage;
 
 
-use Paro\MailerBundle\Mailer\MessageInterface;
+use Paro\MailerBundle\Mailer\MessageWrapperInterface;
 
 interface ConsumerInterface
 {
     /**
-     * @return MessageInterface
+     * @return MessageWrapperInterface
      */
     public function get();
 

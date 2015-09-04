@@ -3,8 +3,8 @@
 
 namespace Paro\MailerBundle\Mailer\Storage\File;
 
+use Paro\MailerBundle\Mailer\MessageWrapperInterface;
 use Paro\MailerBundle\Mailer\Storage\ConsumerInterface;
-use Paro\MailerBundle\Mailer\Storage\MessageInterface;
 
 class FileConsumer implements ConsumerInterface
 {
@@ -20,7 +20,7 @@ class FileConsumer implements ConsumerInterface
         $this->dirname = $dirname;
     }
     /**
-     * @return MessageInterface
+     * @return MessageWrapperInterface
      */
     public function get()
     {
@@ -28,8 +28,9 @@ class FileConsumer implements ConsumerInterface
         $filename = $files[0];
         $data = file_get_contents($filename);
 
-        /** @var MessageInterface $message */
+        /** @var MessageWrapperInterface $message */
         $message = unserialize($data);
+
 
         unlink($filename);
 

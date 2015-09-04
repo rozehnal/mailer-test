@@ -36,9 +36,14 @@ class Message implements MessageInterface
     private $title;
 
     /**
-     * @var TemplateInterface
+     * @var MessageWrapperInterface
      */
-    private $template;
+    private $messageWrapper;
+
+    public function __construct()
+    {
+        $this->messageWrapper = new MessageWrapper();
+    }
 
     /**
      * @return array|string
@@ -157,5 +162,13 @@ class Message implements MessageInterface
     {
         $this->title = $title;
         return $this;
+    }
+
+    /**
+     * @return MessageWrapperInterface
+     */
+    public function getWrapperMessage()
+    {
+        return $this->messageWrapper;
     }
 }

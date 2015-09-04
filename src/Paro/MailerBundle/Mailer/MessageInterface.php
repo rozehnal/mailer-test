@@ -73,4 +73,9 @@ interface MessageInterface
      */
     public function setTitle($title);
 
+    /**
+     * @return MessageWrapperInterface
+     */
+    public function getWrapperMessage();
+
 }

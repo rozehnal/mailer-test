@@ -3,6 +3,7 @@
 namespace Paro\MailerBundle\Mailer\Storage\File;
 
 use Paro\MailerBundle\Mailer\MessageInterface;
+use Paro\MailerBundle\Mailer\MessageWrapper;
 use Paro\MailerBundle\Mailer\Storage\ProducerInterface;
 
 class FileProducer implements ProducerInterface
@@ -17,12 +18,17 @@ class FileProducer implements ProducerInterface
 
     public function add(MessageInterface $message)
     {
-        $date = new \DateTime('2000-01-01');
+        $date = new \DateTime('NOW');
         $prefix = $date->format('Y-m-d_H-i-s');
 
         $filename = tempnam($this->dirname, $prefix . '_message_');
         $fp = fopen($filename, 'w');
-        $data = serialize($message);
+
+        $messageWrapper = $message->getWrapperMessage();
+        $messageWrapper->setUID($filename);
+        $messageWrapper->setMessage($message);
+
+        $data = serialize($messageWrapper);
         fwrite($fp, $data);
         fclose($fp);
     }
