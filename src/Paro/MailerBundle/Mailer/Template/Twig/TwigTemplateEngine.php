@@ -4,6 +4,8 @@
 namespace Paro\MailerBundle\Mailer\Template\Twig;
 
 
+use Paro\MailerBundle\Mailer\Template\TemplateEngineInterface;
+
 class TwigTemplateEngine implements  TemplateEngineInterface
 {
 
