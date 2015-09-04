@@ -1,10 +1,8 @@
 <?php
 
-
 namespace Paro\MailerBundle\Mailer\Template;
 
-
-use Symfony\Component\Config\Definition\Exception\Exception;
+use Paro\MailerBundle\Mailer\Exception\TemplateEngineNotFoundException;
 
 class TemplateFactory
 {
@@ -21,7 +19,7 @@ class TemplateFactory
     public function newTemplate($name)
     {
         if (!array_key_exists($name, $this->engines)) {
-            throw new Exception('template engine not found');
+            throw new TemplateEngineNotFoundException(sprintf('Template %s engine not found', $name));
         }
         return $this->engines[$name]->newTemplate();
     }

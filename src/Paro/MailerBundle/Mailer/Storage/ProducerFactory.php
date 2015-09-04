@@ -14,6 +14,9 @@ class ProducerFactory
             case 'folder':
                 $folder = $parameters['folder'];
                 return new FileProducer($folder);
+                break;
+            default:
+                throw new StorageNotFoundException(sprintf('Storage %s not found.', $type));
         }
     }
 
