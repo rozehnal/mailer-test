@@ -1,8 +1,10 @@
 <?php
 
 
-namespace Paro\MailerBundle\Model;
+namespace Paro\MailerBundle\Model\Template;
 
+
+use Paro\MailerBundle\Model\MessageInterface;
 
 interface TemplateInterface
 {

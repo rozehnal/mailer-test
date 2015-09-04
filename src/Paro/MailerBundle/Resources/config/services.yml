@@ -3,7 +3,7 @@ services:
         class: Paro\MailerBundle\Model\Template\TemplateFactory
 
     paromailer.template.engine.twig:
-        class: Paro\MailerBundle\Model\Template\Engine\TwigTemplateEngine
+        class: Paro\MailerBundle\Model\Template\Twig\TwigTemplateEngine
         arguments:
             - "@twig"
         tags:
