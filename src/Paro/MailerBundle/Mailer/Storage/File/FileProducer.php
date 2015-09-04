@@ -3,7 +3,7 @@
 namespace Paro\MailerBundle\Mailer\Storage\File;
 
 use Paro\MailerBundle\Mailer\MessageInterface;
-use Paro\MailerBundle\Mailer\ProducerInterface;
+use Paro\MailerBundle\Mailer\Storage\ProducerInterface;
 
 class FileProducer implements ProducerInterface
 {

@@ -10,20 +10,20 @@ services:
             -  { name: paromailer.template.engine, alias: 'twig' }
 
     paromailer.producer.factory:
-        class: Paro\MailerBundle\Mailer\ProducerFactory
+        class: Paro\MailerBundle\Mailer\Storage\ProducerFactory
 
     paromailer.consumer.factory:
-            class: Paro\MailerBundle\Mailer\ConsumerFactory
+            class: Paro\MailerBundle\Mailer\Storage\ConsumerFactory
 
     paromailer.producer:
-        class: Paro\MailerBundle\Mailer\ProducerInterface
+        class: Paro\MailerBundle\Mailer\Storage\ProducerInterface
         factory: ["@paromailer.producer.factory", createNewProducer]
         arguments:
             - "%paro_mailer.storage.type%"
             - "%paro_mailer.storage.parameters%"
 
     paromailer.consumer:
-        class: Paro\MailerBundle\Mailer\ConsumerInterface
+        class: Paro\MailerBundle\Mailer\Storage\ConsumerInterface
         factory: ["@paromailer.consumer.factory", createNewConsumer]
         arguments:
             - "%paro_mailer.storage.type%"

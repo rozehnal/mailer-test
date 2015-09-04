@@ -3,8 +3,8 @@
 
 namespace Paro\MailerBundle\Mailer\Storage\File;
 
-use Paro\MailerBundle\Mailer\ConsumerInterface;
-use Paro\MailerBundle\Mailer\MessageInterface;
+use Paro\MailerBundle\Mailer\Storage\ConsumerInterface;
+use Paro\MailerBundle\Mailer\Storage\MessageInterface;
 
 class FileConsumer implements ConsumerInterface
 {
