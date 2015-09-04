@@ -8,10 +8,13 @@ use Paro\MailerBundle\Model\File\FileConsumer;
 
 class ConsumerFactory
 {
-    public function createNewConsumer($storage, array $parameters)
+    public function createNewConsumer($type, array $parameters)
     {
-        $folder = $parameters['folder'];
-        return new FileConsumer($folder);
+        switch($type) {
+            case 'folder':
+                $folder = $parameters['folder'];
+                return new FileConsumer($folder);
+        }
     }
 
 }
