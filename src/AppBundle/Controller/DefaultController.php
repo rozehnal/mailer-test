@@ -30,14 +30,14 @@ class DefaultController extends Controller
         /** @var TemplateInterface $template */
         $template = $mailer->newTemplate('twig')
             ->setPlaintextTemplate('default/index.html.twig')
-            ->setHtmlTemplate(null);
+            ->setHtmlTemplate('default/index.html.twig');
 
         $message = $mailer->newMessage('subject')
             ->setTo('tester@tester.cz')
             ->setPlainContent('message1')
             ;
 
-        $template->updateMessage($message, array('base_dir'=> 'root'));
+        $template->updateMessage($message, array('base_dir'=> 'parameter template'));
 
         $mailer->getProducer()->add($message);
 
@@ -55,7 +55,7 @@ class DefaultController extends Controller
 
         $consumer->process(1);
 
-        //var_dump($messageRecieved);
+        var_dump($messageRecieved);
 
 
 

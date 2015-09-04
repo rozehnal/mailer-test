@@ -7,12 +7,12 @@ services:
     paromailer.template.factory:
         class: Paro\MailerBundle\Mailer\Template\TemplateFactory
 
-    paromailer.template.engine.twig:
-        class: Paro\MailerBundle\Mailer\Template\Twig\TwigTemplateEngine
-        arguments:
-            - "@twig"
-        tags:
-            -  { name: paromailer.template.engine, alias: 'twig' }
+#    paromailer.template.engine.twig:
+#        class: Paro\MailerBundle\Mailer\Template\Twig\TwigTemplateEngine
+#        arguments:
+#            - "@twig"
+#        tags:
+#            -  { name: paromailer.template.engine, alias: 'twig' }
 
     paromailer.producer.factory:
         class: Paro\MailerBundle\Mailer\Storage\ProducerFactory
