@@ -28,6 +28,9 @@ class ParoMailerExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        $container->setParameter('paro_mailer.storage', $config['storage']);
+        $container->setParameter('paro_mailer.sender', $config['sender']);
+        $container->setParameter('paro_mailer.storage.type', $config['storage']['type']);
+        $container->setParameter('paro_mailer.storage.parameters', $config['storage']['parameters']);
+
     }
 }

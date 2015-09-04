@@ -8,9 +8,10 @@ use Paro\MailerBundle\Model\File\FileConsumer;
 
 class ConsumerFactory
 {
-    public function createNewConsumer($storage)
+    public function createNewConsumer($storage, array $parameters)
     {
-        return new FileConsumer("/Applications/XAMPP/htdocs/mailer-bundle/Tests/data");
+        $folder = $parameters['folder'];
+        return new FileConsumer($folder);
     }
 
 }

@@ -8,9 +8,10 @@ use Paro\MailerBundle\Model\File\FileProducer;
 
 class ProducerFactory
 {
-    public function createNewProducer($storage)
+    public function createNewProducer($type, array $parameters)
     {
-        return new FileProducer("/Applications/XAMPP/htdocs/mailer-bundle/Tests/data");
+        $folder = $parameters['folder'];
+        return new FileProducer($folder);
     }
 
 }

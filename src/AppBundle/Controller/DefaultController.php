@@ -22,6 +22,8 @@ class DefaultController extends Controller
         $mailer = $this->get('paromailer.mailer');
 
 
+
+
         /** @var TemplateInterface $template */
         $template = $mailer->newTemplate('twig')
             ->setPlaintextTemplate(null)

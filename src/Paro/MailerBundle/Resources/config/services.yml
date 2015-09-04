@@ -19,13 +19,15 @@ services:
         class: Paro\MailerBundle\Model\ProducerInterface
         factory: ["@paromailer.producer.factory", createNewProducer]
         arguments:
-            - "%paro_mailer.storage%"
+            - "%paro_mailer.storage.type%"
+            - "%paro_mailer.storage.parameters%"
 
     paromailer.consumer:
         class: Paro\MailerBundle\Model\ConsumerInterface
         factory: ["@paromailer.consumer.factory", createNewConsumer]
         arguments:
-            - "%paro_mailer.storage%"
+            - "%paro_mailer.storage.type%"
+            - "%paro_mailer.storage.parameters%"
 
     paromailer.mailer:
         class: Paro\MailerBundle\Model\Mailer

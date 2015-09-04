@@ -21,7 +21,17 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
             ->scalarNode('sender')->defaultValue('swiftmailer')->end()
-            ->scalarNode('storage')->defaultValue('folder')->end()
+            ->arrayNode('storage')
+                ->children()
+                    ->arrayNode('parameters')
+                        ->children()
+                            ->scalarNode('folder')
+                            ->end()
+                        ->end()
+                    ->end()
+                    ->scalarNode('type')
+                    ->end()
+                ->end()
             ->end()
         ;
 

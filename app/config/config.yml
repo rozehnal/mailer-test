@@ -9,12 +9,11 @@ parameters:
     locale: en
 
 paro_mailer:
-#    storage:
-#        type: file
-#        parameters:
-#            folder: '/Applications/XAMPP/htdocs/mailer-bundle/Tests/data'
+    storage:
+        type: file
+        parameters:
+            folder: 'D:/temp'
     sender: swiftmailer
-    storage: folder
 
 framework:
     #esi:             ~
