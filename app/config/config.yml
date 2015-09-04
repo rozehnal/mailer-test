@@ -12,7 +12,7 @@ paro_mailer:
     storage:
         type: folder
         parameters:
-            folder: 'D:/temp'
+            folder: %paro_mailer.folder%
     sender: swiftmailer
 
 framework:
