@@ -1,6 +1,6 @@
 <?php
 
-namespace Paro\MailerBundle\Model\Template\Twig;
+namespace Paro\MailerBundle\Mailer\Template\Twig;
 
 interface TemplateEngineInterface
 {

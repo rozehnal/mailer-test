@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Paro\MailerBundle\Model;
+namespace Paro\MailerBundle\Mailer;
 
 
-use Paro\MailerBundle\Model\Template\TemplateFactory;
-use Paro\MailerBundle\Model\Template\TwigTemplate;
+use Paro\MailerBundle\Mailer\Template\TemplateFactory;
+use Paro\MailerBundle\Mailer\Template\TwigTemplate;
 
 class Mailer implements MailerInterface
 {

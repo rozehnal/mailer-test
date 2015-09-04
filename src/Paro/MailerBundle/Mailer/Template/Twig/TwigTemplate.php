@@ -1,9 +1,9 @@
 <?php
 
-namespace Paro\MailerBundle\Model\Template\Twig;
+namespace Paro\MailerBundle\Mailer\Template\Twig;
 
-use Paro\MailerBundle\Model\MessageInterface;
-use Paro\MailerBundle\Model\Template\TemplateInterface;
+use Paro\MailerBundle\Mailer\MessageInterface;
+use Paro\MailerBundle\Mailer\Template\TemplateInterface;
 
 class TwigTemplate implements TemplateInterface
 {

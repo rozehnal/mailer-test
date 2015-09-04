@@ -1,34 +1,34 @@
 services:
     paromailer.template.factory:
-        class: Paro\MailerBundle\Model\Template\TemplateFactory
+        class: Paro\MailerBundle\Mailer\Template\TemplateFactory
 
     paromailer.template.engine.twig:
-        class: Paro\MailerBundle\Model\Template\Twig\TwigTemplateEngine
+        class: Paro\MailerBundle\Mailer\Template\Twig\TwigTemplateEngine
         arguments:
             - "@twig"
         tags:
             -  { name: paromailer.template.engine, alias: 'twig' }
 
     paromailer.producer.factory:
-        class: Paro\MailerBundle\Model\ProducerFactory
+        class: Paro\MailerBundle\Mailer\ProducerFactory
 
     paromailer.consumer.factory:
-            class: Paro\MailerBundle\Model\ConsumerFactory
+            class: Paro\MailerBundle\Mailer\ConsumerFactory
 
     paromailer.producer:
-        class: Paro\MailerBundle\Model\ProducerInterface
+        class: Paro\MailerBundle\Mailer\ProducerInterface
         factory: ["@paromailer.producer.factory", createNewProducer]
         arguments:
             - "%paro_mailer.storage.type%"
             - "%paro_mailer.storage.parameters%"
 
     paromailer.consumer:
-        class: Paro\MailerBundle\Model\ConsumerInterface
+        class: Paro\MailerBundle\Mailer\ConsumerInterface
         factory: ["@paromailer.consumer.factory", createNewConsumer]
         arguments:
             - "%paro_mailer.storage.type%"
             - "%paro_mailer.storage.parameters%"
 
     paromailer.mailer:
-        class: Paro\MailerBundle\Model\Mailer
+        class: Paro\MailerBundle\Mailer\Mailer
         arguments: ['paro_mailer.sender', '@paromailer.producer', '@paromailer.consumer', '@paromailer.template.factory']

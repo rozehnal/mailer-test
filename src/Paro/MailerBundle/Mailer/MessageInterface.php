@@ -1,5 +1,5 @@
 <?php
-namespace Paro\MailerBundle\Model;
+namespace Paro\MailerBundle\Mailer;
 
 interface MessageInterface
 {

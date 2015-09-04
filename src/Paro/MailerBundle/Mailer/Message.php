@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Paro\MailerBundle\Model;
+namespace Paro\MailerBundle\Mailer;
 
 
 class Message implements MessageInterface

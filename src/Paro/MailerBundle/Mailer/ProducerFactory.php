@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Paro\MailerBundle\Model;
+namespace Paro\MailerBundle\Mailer;
 
 
-use Paro\MailerBundle\Model\File\FileProducer;
+use Paro\MailerBundle\Mailer\Storage\File\FileProducer;
 
 class ProducerFactory
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Paro\MailerBundle\Model\File;
+namespace Paro\MailerBundle\Mailer\Storage\File;
 
-use Paro\MailerBundle\Model\MessageInterface;
-use Paro\MailerBundle\Model\ProducerInterface;
+use Paro\MailerBundle\Mailer\MessageInterface;
+use Paro\MailerBundle\Mailer\ProducerInterface;
 
 class FileProducer implements ProducerInterface
 {

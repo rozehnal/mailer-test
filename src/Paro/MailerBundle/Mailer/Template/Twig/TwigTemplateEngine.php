@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Paro\MailerBundle\Model\Template\Twig;
+namespace Paro\MailerBundle\Mailer\Template\Twig;
 
 
 class TwigTemplateEngine implements  TemplateEngineInterface

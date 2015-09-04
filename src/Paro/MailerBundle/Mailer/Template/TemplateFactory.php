@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Paro\MailerBundle\Model\Template;
+namespace Paro\MailerBundle\Mailer\Template;
 
 
 use Symfony\Component\Config\Definition\Exception\Exception;
