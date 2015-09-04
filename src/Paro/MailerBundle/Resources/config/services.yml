@@ -1,4 +1,9 @@
 services:
+    paromailer.sender.factory:
+        class: Paro\MailerBundle\Mailer\Sender\SenderFactory
+        arguments:
+          - "%paro_mailer.sender%"
+
     paromailer.template.factory:
         class: Paro\MailerBundle\Mailer\Template\TemplateFactory
 
@@ -28,7 +33,8 @@ services:
         arguments:
             - "%paro_mailer.storage.type%"
             - "%paro_mailer.storage.parameters%"
+            - '@paromailer.sender.factory'
 
     paromailer.mailer:
         class: Paro\MailerBundle\Mailer\Mailer
-        arguments: ['paro_mailer.sender', '@paromailer.producer', '@paromailer.consumer', '@paromailer.template.factory']
+        arguments: ['@paromailer.producer', '@paromailer.consumer', '@paromailer.template.factory']

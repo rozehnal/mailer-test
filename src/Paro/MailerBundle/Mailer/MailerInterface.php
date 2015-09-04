@@ -8,11 +8,6 @@ interface MailerInterface
 {
 
     /**
-     * @return string
-     */
-    public function getEngine();
-
-    /**
      * @return ProducerInterface
      */
     public function getProducer();

@@ -29,7 +29,7 @@ class DefaultController extends Controller
 
         /** @var TemplateInterface $template */
         $template = $mailer->newTemplate('twig')
-            ->setPlaintextTemplate(null)
+            ->setPlaintextTemplate('default/index.html.twig')
             ->setHtmlTemplate(null);
 
         $message = $mailer->newMessage('subject')
@@ -37,9 +37,9 @@ class DefaultController extends Controller
             ->setPlainContent('message1')
             ;
 
-        $template->updateMessage($message, array());
+        $template->updateMessage($message, array('base_dir'=> 'root'));
 
-        //$mailer->getProducer()->add($message);
+        $mailer->getProducer()->add($message);
 
         $message = $mailer->newMessage('subject')
             ->setTo('tester@tester.cz')
@@ -48,10 +48,14 @@ class DefaultController extends Controller
         ;
 
         $mailer->getProducer()->add($message);
-        $messageRecieved = $mailer->getConsumer()->get();
-        $mailer->getConsumer()->confirm($messageRecieved);
 
-        var_dump($messageRecieved);
+        $consumer = $mailer->getConsumer();
+        $messageRecieved = $consumer->get();
+        $consumer->confirm($messageRecieved);
+
+        $consumer->process(1);
+
+        //var_dump($messageRecieved);
 
 
 

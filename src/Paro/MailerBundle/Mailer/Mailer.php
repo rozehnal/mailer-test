@@ -15,10 +15,6 @@ class Mailer implements MailerInterface
     /**
      * @var
      */
-    private $engine;
-    /**
-     * @var
-     */
     private $producer;
     /**
      * @var
@@ -35,23 +31,13 @@ class Mailer implements MailerInterface
      * @param $consumer
      * @param TemplateFactory $templateFactory
      */
-    public function __construct($engine, $producer, $consumer, TemplateFactory $templateFactory)
+    public function __construct($producer, $consumer, TemplateFactory $templateFactory)
     {
-
-        $this->engine = $engine;
         $this->producer = $producer;
         $this->consumer = $consumer;
         $this->templateFactory = $templateFactory;
     }
 
-
-    /**
-     * @return string
-     */
-    public function getEngine()
-    {
-        // TODO: Implement getEngine() method.
-    }
 
     /**
      * @return ProducerInterface

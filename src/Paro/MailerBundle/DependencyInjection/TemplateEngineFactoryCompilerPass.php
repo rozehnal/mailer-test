@@ -33,5 +33,20 @@ class TemplateEngineFactoryCompilerPass implements CompilerPassInterface
                 );
             }
         }
+
+        $this->configureSenderFactory('paromailer.sender.factory', $container);
+    }
+
+    public function configureSenderFactory($name, ContainerBuilder $container)
+    {
+        $definition = $container->findDefinition($name);
+
+        if (class_exists('\Swift_Mailer')) {
+            $definition->addMethodCall(
+                'addEngine',
+                array('swiftmailer', new Reference('mailer'))
+            );
+        }
+
     }
 }
