@@ -14,7 +14,7 @@ Configuration
                 folder: %paro_mailer.folder%
         sender: swiftmailer
 
-Adding tempalating system (allows easier mail creating)
+Adding email's templating system
 ---
     #services.yml
     paromailer.template.engine.twig:
