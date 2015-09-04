@@ -29,36 +29,33 @@ By using tagged services you can add any other template's system.
 Example
 ----
 
-$mailer = $this->get('paromailer.mailer');
+    $mailer = $this->get('paromailer.mailer');
 
+    /** @var TemplateInterface $template */
+    $template = $mailer->newTemplate('twig')
+        ->setPlaintextTemplate('default/index.html.twig')
+        ->setHtmlTemplate(null);
 
-
-
-        /** @var TemplateInterface $template */
-        $template = $mailer->newTemplate('twig')
-            ->setPlaintextTemplate('default/index.html.twig')
-            ->setHtmlTemplate(null);
-
-        $message = $mailer->newMessage('subject')
-            ->setTo('tester@tester.cz')
-            ->setPlainContent('message1')
-            ;
-
-        $template->updateMessage($message, array('base_dir'=> 'root'));
-
-        $mailer->getProducer()->add($message);
-
-        $message = $mailer->newMessage('subject')
-            ->setTo('tester@tester.cz')
-            ->setPlainContent('message2')
-            //->setTemplate(null, array())
+    $message = $mailer->newMessage('subject')
+        ->setTo('tester@tester.cz')
+        ->setPlainContent('message1')
         ;
 
-        $mailer->getProducer()->add($message);
+    $template->updateMessage($message, array('base_dir'=> 'root'));
 
-        $consumer = $mailer->getConsumer();
-        $messageRecieved = $consumer->get();
-        $consumer->confirm($messageRecieved);
+    $mailer->getProducer()->add($message);
 
-        $consumer->process(1);
+    $message = $mailer->newMessage('subject')
+        ->setTo('tester@tester.cz')
+        ->setPlainContent('message2')
+        //->setTemplate(null, array())
+    ;
+
+    $mailer->getProducer()->add($message);
+
+    $consumer = $mailer->getConsumer();
+    $messageRecieved = $consumer->get();
+    $consumer->confirm($messageRecieved);
+
+    $consumer->process(1);
 
