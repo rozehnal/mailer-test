@@ -4,10 +4,8 @@
 namespace Paro\MailerBundle\Mailer;
 
 
-interface MessageWrapperInterface
+interface MessageInfoInterface
 {
-    public function setMessage(MessageInterface $message);
-    public function getMessage();
 
     /**
      * @param string $name

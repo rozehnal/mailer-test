@@ -36,13 +36,13 @@ class Message implements MessageInterface
     private $title;
 
     /**
-     * @var MessageWrapperInterface
+     * @var MessageInfoInterface
      */
-    private $messageWrapper;
+    private $messageInfo;
 
     public function __construct()
     {
-        $this->messageWrapper = new MessageWrapper();
+        $this->messageInfo = new MessageInfo();
     }
 
     /**
@@ -165,10 +165,10 @@ class Message implements MessageInterface
     }
 
     /**
-     * @return MessageWrapperInterface
+     * @return MessageInfoInterface
      */
-    public function getWrapperMessage()
+    public function getInfo()
     {
-        return $this->messageWrapper;
+        return $this->messageInfo;
     }
 }

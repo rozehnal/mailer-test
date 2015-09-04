@@ -4,6 +4,8 @@
 namespace Paro\MailerBundle\Mailer;
 
 
+use Paro\MailerBundle\Mailer\Storage\ConsumerInterface;
+use Paro\MailerBundle\Mailer\Storage\ProducerInterface;
 use Paro\MailerBundle\Mailer\Template\TemplateFactory;
 use Paro\MailerBundle\Mailer\Template\TwigTemplate;
 
@@ -56,7 +58,6 @@ class Mailer implements MailerInterface
      */
     public function getProducer()
     {
-        // TODO: Implement getProducer() method.
         return $this->producer;
     }
 
@@ -65,7 +66,6 @@ class Mailer implements MailerInterface
      */
     public function getConsumer()
     {
-        // TODO: Implement getConsumer() method.
         return $this->consumer;
     }
 

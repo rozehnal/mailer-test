@@ -3,7 +3,6 @@
 namespace Paro\MailerBundle\Mailer\Storage\File;
 
 use Paro\MailerBundle\Mailer\MessageInterface;
-use Paro\MailerBundle\Mailer\MessageWrapper;
 use Paro\MailerBundle\Mailer\Storage\ProducerInterface;
 
 class FileProducer implements ProducerInterface
@@ -24,11 +23,12 @@ class FileProducer implements ProducerInterface
         $filename = tempnam($this->dirname, $prefix . '_message_');
         $fp = fopen($filename, 'w');
 
-        $messageWrapper = $message->getWrapperMessage();
-        $messageWrapper->setUID($filename);
-        $messageWrapper->setMessage($message);
 
-        $data = serialize($messageWrapper);
+        $messageInfo = $message->getInfo();
+        $messageInfo->setUID($filename);
+
+        $data = serialize($message);
+
         fwrite($fp, $data);
         fclose($fp);
     }
