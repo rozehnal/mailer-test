@@ -10,8 +10,11 @@ class ProducerFactory
 {
     public function createNewProducer($type, array $parameters)
     {
-        $folder = $parameters['folder'];
-        return new FileProducer($folder);
+        switch($type) {
+            case 'folder':
+                $folder = $parameters['folder'];
+                return new FileProducer($folder);
+        }
     }
 
 }
