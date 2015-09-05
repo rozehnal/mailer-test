@@ -13,11 +13,11 @@ class Mailer implements MailerInterface
 {
 
     /**
-     * @var
+     * @var ProducerInterface
      */
     private $producer;
     /**
-     * @var
+     * @var ConsumerInterface
      */
     private $consumer;
     /**
@@ -26,12 +26,11 @@ class Mailer implements MailerInterface
     private $templateFactory;
 
     /**
-     * @param $engine
-     * @param $producer
-     * @param $consumer
+     * @param ProducerInterface $producer
+     * @param ConsumerInterface $consumer
      * @param TemplateFactory $templateFactory
      */
-    public function __construct($producer, $consumer, TemplateFactory $templateFactory)
+    public function __construct(ProducerInterface $producer, ConsumerInterface $consumer, TemplateFactory $templateFactory)
     {
         $this->producer = $producer;
         $this->consumer = $consumer;
@@ -56,7 +55,6 @@ class Mailer implements MailerInterface
     }
 
     /**
-     * @param $engine
      * @return MessageInterface
      */
     public function newMessage($subject = null)

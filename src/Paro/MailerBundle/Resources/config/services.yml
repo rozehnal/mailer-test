@@ -37,4 +37,7 @@ services:
 
     paromailer.mailer:
         class: Paro\MailerBundle\Mailer\Mailer
-        arguments: ['@paromailer.producer', '@paromailer.consumer', '@paromailer.template.factory']
+        arguments:
+            - '@paromailer.producer'
+            - '@paromailer.consumer'
+            - '@paromailer.template.factory'
