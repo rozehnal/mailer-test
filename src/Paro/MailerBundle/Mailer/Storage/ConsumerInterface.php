@@ -17,4 +17,5 @@ interface ConsumerInterface
 
     public function confirm(MessageInterface $message);
 
+
 }

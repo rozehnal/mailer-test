@@ -5,6 +5,7 @@ namespace Paro\MailerBundle\Mailer\Storage\File;
 
 use Paro\MailerBundle\Mailer\MessageInterface;
 use Paro\MailerBundle\Mailer\Sender\SenderInterface;
+use Paro\MailerBundle\Mailer\Archiver\ArchiverInterface;
 use Paro\MailerBundle\Mailer\Storage\ConsumerInterface;
 
 class FileConsumer implements ConsumerInterface
@@ -18,12 +19,22 @@ class FileConsumer implements ConsumerInterface
      * @var SenderInterface
      */
     private $sender;
+    /**
+     * @var ArchiverInterface
+     */
+    private $archiver;
 
-    public function __construct($dirname, SenderInterface $sender)
+    /**
+     * @param $dirname
+     * @param SenderInterface $sender
+     * @param ArchiverInterface $archiver
+     */
+    public function __construct($dirname, SenderInterface $sender, ArchiverInterface $archiver = null)
     {
 
         $this->dirname = $dirname;
         $this->sender = $sender;
+        $this->archiver = $archiver;
     }
     /**
      * @return MessageInterface
@@ -53,7 +64,12 @@ class FileConsumer implements ConsumerInterface
 
     public function confirm(MessageInterface $message)
     {
-        var_dump('confirm - ' . $message->getInfo()->getUID());
+        var_dump('confirmed - ' . $message->getInfo()->getUID());
+
+        if (!is_null($this->archiver)) {
+            $this->archiver->store($message);
+        }
+
         unlink($message->getInfo()->getUID());
     }
 }

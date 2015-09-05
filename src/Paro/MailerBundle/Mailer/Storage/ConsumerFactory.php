@@ -4,6 +4,7 @@
 namespace Paro\MailerBundle\Mailer\Storage;
 
 
+use Paro\MailerBundle\Mailer\Archiver\ArchiverInterface;
 use Paro\MailerBundle\Mailer\Exception\StorageNotFoundException;
 use Paro\MailerBundle\Mailer\Sender\SenderFactoryInterface;
 use Paro\MailerBundle\Mailer\Sender\SenderInterface;
@@ -15,6 +16,12 @@ class ConsumerFactory
      * @var SenderInterface
      */
     private $engine;
+
+
+    /**
+     * @var ArchiverInterface
+     */
+    private $archiver;
 
     /**
      * @param $type
@@ -30,10 +37,18 @@ class ConsumerFactory
         switch($type) {
             case 'folder':
                 $folder = $parameters['folder'];
-                return new FileConsumer($folder, $this->engine);
+                return new FileConsumer($folder, $this->engine, $this->archiver);
             default:
                 throw new StorageNotFoundException(sprintf('Storage %s not found.', $type));
         }
     }
 
+
+    /**
+     * @param ArchiverInterface $archiver
+     */
+    public function setArchiver(ArchiverInterface $archiver)
+    {
+        $this->archiver = $archiver;
+    }
 }

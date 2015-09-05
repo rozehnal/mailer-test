@@ -33,6 +33,18 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end()
+            ->arrayNode('archiver')
+                ->children()
+                    ->arrayNode('parameters')
+                        ->children()
+                            ->scalarNode('folder')
+                            ->end()
+                        ->end()
+                    ->end()
+                    ->scalarNode('type')
+                    ->end()
+                ->end()
+            ->end()
         ;
 
         return $treeBuilder;

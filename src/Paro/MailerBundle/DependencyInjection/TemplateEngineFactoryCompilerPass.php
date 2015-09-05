@@ -16,6 +16,19 @@ class TemplateEngineFactoryCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
+        if ($container->hasParameter('paro_mailer.archiver.type')) {
+            $container
+                ->register('paromailer.archiver', 'Paro\MailerBundle\Mailer\Archiver\Folder\FolderArchiver')
+                ->addArgument($container->getParameter('paro_mailer.archiver.parameters')['folder']);
+
+
+            $definition = $container->findDefinition('paromailer.consumer.factory');
+            $definition->addMethodCall(
+                'setArchiver',
+                array(new Reference('paromailer.archiver'))
+            );
+        }
+
         $this->configureTemplateFactory('paromailer.template.factory', $container);
         $this->configureSenderFactory('paromailer.sender.factory', $container);
     }

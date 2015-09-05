@@ -12,7 +12,11 @@ paro_mailer:
     storage:
         type: folder
         parameters:
-            folder: %paro_mailer.folder%
+            folder: %paro_mailer.storage.folder%
+    archiver:
+        type: folder
+        parameters:
+            folder: %paro_mailer.archiver.folder%
     sender: swiftmailer
 
 framework:

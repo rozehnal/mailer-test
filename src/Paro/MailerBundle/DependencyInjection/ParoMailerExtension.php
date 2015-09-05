@@ -32,5 +32,11 @@ class ParoMailerExtension extends Extension
         $container->setParameter('paro_mailer.storage.type', $config['storage']['type']);
         $container->setParameter('paro_mailer.storage.parameters', $config['storage']['parameters']);
 
+        if (isset($config['archiver'])) {
+            $container->setParameter('paro_mailer.archiver.type', $config['archiver']['type']);
+            $container->setParameter('paro_mailer.archiver.parameters', $config['archiver']['parameters']);
+        }
+
+
     }
 }

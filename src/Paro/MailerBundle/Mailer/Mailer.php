@@ -4,6 +4,7 @@
 namespace Paro\MailerBundle\Mailer;
 
 
+use Paro\MailerBundle\Mailer\Archiver\ArchiverInterface;
 use Paro\MailerBundle\Mailer\Storage\ConsumerInterface;
 use Paro\MailerBundle\Mailer\Storage\ProducerInterface;
 use Paro\MailerBundle\Mailer\Template\TemplateFactory;
@@ -36,7 +37,6 @@ class Mailer implements MailerInterface
         $this->consumer = $consumer;
         $this->templateFactory = $templateFactory;
     }
-
 
     /**
      * @return ProducerInterface
