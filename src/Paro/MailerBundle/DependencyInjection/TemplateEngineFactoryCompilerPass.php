@@ -11,15 +11,19 @@ use Symfony\Component\DependencyInjection\Reference;
 class TemplateEngineFactoryCompilerPass implements CompilerPassInterface
 {
 
+    /**
+     * @param ContainerBuilder $container
+     */
     public function process(ContainerBuilder $container)
     {
-
-
-
         $this->configureTemplateFactory('paromailer.template.factory', $container);
         $this->configureSenderFactory('paromailer.sender.factory', $container);
     }
 
+    /**
+     * @param string $name
+     * @param ContainerBuilder $container
+     */
     public function configureTemplateFactory($name, ContainerBuilder $container)
     {
         if (!$container->has($name)) {
@@ -55,6 +59,10 @@ class TemplateEngineFactoryCompilerPass implements CompilerPassInterface
     }
 
 
+    /**
+     * @param string $name
+     * @param ContainerBuilder $container
+     */
     public function configureSenderFactory($name, ContainerBuilder $container)
     {
         if (!$container->has($name)) {
