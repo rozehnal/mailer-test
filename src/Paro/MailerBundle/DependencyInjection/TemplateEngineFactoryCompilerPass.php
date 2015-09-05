@@ -4,7 +4,6 @@
 namespace Paro\MailerBundle\DependencyInjection;
 
 
-use Paro\MailerBundle\Mailer\Template\Twig\TwigTemplateEngine;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Reference;
