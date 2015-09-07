@@ -1,0 +1,19 @@
+Paro\MailerBundle\Model\Archive:
+  type: entity
+#  repositoryClass: Doctrine\Tests\ORM\Mapping\UserRepository
+  table: paro_mailer_archive
+#  schema: schema_name # The schema the table lies in, for platforms that support schemas (Optional, >= 2.5)
+#  readOnly: true
+#  indexes:
+#    name_index:
+#      columns: [ name ]
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    uid:
+      type: string
+      unique: true
+      length: 256
